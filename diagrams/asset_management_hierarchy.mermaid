@@ -1,0 +1,67 @@
+graph TD
+    %% Asset Level
+    A1[Physical Server - Web01] --> B1[Web Application]
+    A1 --> B2[Database Service]
+    A1 --> B3[Monitoring Agent]
+    
+    A2[Virtual Machine - App02] --> B4[API Gateway]
+    A2 --> B5[Authentication Service]
+    
+    A3[Container - microservice-pod] --> B6[Payment Service]
+    A3 --> B7[Notification Service]
+    
+    A4[Cloud Instance - prod-worker] --> B8[Background Processor]
+    A4 --> B9[File Handler]
+    
+    %% Application Level
+    B1 --> C1[Express.js v4.18.2]
+    B1 --> C2[React v18.2.0]
+    B1 --> C3[Webpack v5.75.0]
+    
+    B2 --> C4[PostgreSQL v14.6]
+    B2 --> C5[Redis v7.0.5]
+    
+    B4 --> C6[nginx v1.22.1]
+    B4 --> C7[Node.js v18.12.1]
+    
+    B5 --> C8[OAuth2 Library v4.2.1]
+    B5 --> C9[JWT Handler v8.5.1]
+    
+    B6 --> C10[Stripe SDK v10.15.0]
+    B6 --> C11[FastAPI v0.95.2]
+    
+    %% Library/Package Level
+    C1 --> D1[lodash v4.17.21]
+    C1 --> D2[helmet v6.0.1]
+    C1 --> D3[cors v2.8.5]
+    
+    C2 --> D4[react-dom v18.2.0]
+    C2 --> D5[@babel/core v7.20.12]
+    C2 --> D6[axios v1.2.2]
+    
+    C4 --> D7[libssl v1.1.1f]
+    C4 --> D8[zlib v1.2.11]
+    
+    C6 --> D9[OpenSSL v1.1.1t]
+    C6 --> D10[PCRE v8.45]
+    
+    C10 --> D11[requests v2.28.2]
+    C10 --> D12[urllib3 v1.26.14]
+    C10 --> D13[certifi v2022.12.7]
+    
+    %% Vulnerability Examples
+    D2 -.-> V1[⚠️ CVE-2023-xxxx<br/>XSS vulnerability]
+    D7 -.-> V2[🔴 Critical SSL flaw<br/>Remote code execution]
+    D12 -.-> V3[⚠️ SSRF vulnerability<br/>Medium severity]
+    
+    %% Styling
+    classDef assetLevel fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    classDef appLevel fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef libLevel fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef vulnLevel fill:#ffebee,stroke:#c62828,stroke-width:2px
+    
+    class A1,A2,A3,A4 assetLevel
+    class B1,B2,B3,B4,B5,B6,B7,B8,B9 appLevel
+    class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11 appLevel
+    class D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13 libLevel
+    class V1,V2,V3 vulnLevel
