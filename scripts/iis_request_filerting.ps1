@@ -14,9 +14,10 @@ $extensions = @(
     ".pdf", ".doc", ".docx", ".xls", ".xlsx",
     ".mp4", ".mp3",
     ".json", ".xml",
-    ".aspx", ".ashx", ".asmx" ".asp",woff", ".woff2", ".ttf",
-    ".z,
-    ".ip"
+    ".aspx", ".ashx", ".asmx" ".asp", ".woff", ".woff2", ".ttf",
+    ".zip",
+		".log", ".config",
+		"."  # Required for MVC - allow anything that doesn't have a designated extension.
 )
 
 # Add each extension to the allowed list
